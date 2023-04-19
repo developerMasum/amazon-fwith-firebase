@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import app from "../../../firebase.config";
-import { useLocation } from "react-router-dom";
+
 
 const auth = getAuth(app);
 
@@ -17,11 +17,13 @@ const AuthPRovider = ({ children }) => {
     // sign up
 
     const createUser= (email,password)=>{
+      // setLoading(true);
         return createUserWithEmailAndPassword(auth,email,password)
     }
     // sign in
 
     const login = (email , password)=>{
+      // setLoading(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
 

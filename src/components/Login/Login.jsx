@@ -9,6 +9,7 @@ const Login = () => {
   const navigate = useNavigate()
 const location = useLocation()
 console.log(location);
+const from = location.state?.from?.pathname || '/'
   
 
 const handleLogIn =(event)=>{
@@ -29,7 +30,8 @@ const handleLogIn =(event)=>{
     const loggedUSer = result.user;
     console.log(loggedUSer);
     form.reset();
-    navigate('/')
+
+    navigate(from ,{replace:true});
   })
   .catch(error=>{
     console.log(error);
